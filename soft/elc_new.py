@@ -12,40 +12,22 @@ def exit_on_q(key):
     if key in ('w', 'W'):
     # forward
         ser.write(b'W')#pw = str(power)
-        #string1 = 'W'
-        #string1_encode = string1.encode()
-        #ser.write(string1_encode)#pw = str(power)
 		
     if key in ('a', 'A'):
     # Left
         ser.write(b'W')#pw = str(power)
-        #pw = str(power)
-        #txt_CP.set_text(('banner', u"A"))
-        #power = 30
-        #spower = 3
-        #txt_CP.set_text(('banner', str(power)))
 
     if key in ('s', 'S'):
     # Backward
         ser.write(b'S')#pw = str(power)
-        #pw = str(power)
-        #txt_CP.set_text(('banner', u"S"))
 
     if key in ('d', 'D'):
     # Right
         ser.write(b'D')
-        #txt_CP.set_text(('banner', u"D"))
-        #power = 30
-        #spower = 3
-        #txt_CP.set_text(('banner', str(power)))
 
     if key in (' '):
     # Stop
         ser.write(b' ');
-        #power = 0
-        #spower = 0
-        #txt_CP.set_text(('banner', str(power)))
-        #txt_CP.set_text(('banner', u"Space"))
 		
     if key in ('+'):
         if (power < 90):
@@ -80,9 +62,6 @@ txt_C = urwid.Text(('banner', u"Current power:"), align='center')
 txt_CP = urwid.Text(('banner', str(power)), align='center')
 
 txt_Q = urwid.Text(('banner', u"Q - Quit"), align='center')
-#txt_F = urwid.Text(('banner', u"W \u2191"), align='center')
-#txt_LRS = urwid.Text(('banner', u"\u2190 A | Space - Stop | D \u2192"), align='center')
-#txt_B = urwid.Text(('banner', u"S \u2193"), align='center')
 
 #empty string
 txt_E = urwid.Text(('banner', u""), align='center')
