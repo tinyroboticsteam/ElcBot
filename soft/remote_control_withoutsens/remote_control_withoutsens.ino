@@ -121,7 +121,7 @@ void loop()
     timer0 = millis();  // Получение текущего времени
     // Проверка на время отправки последней команды:
     // если прошло более секунды, робот останавливается
-    if ((timer0 - timer1) > 20000) {
+    if ((unsigned long)(timer0 - timer1) > 20000) {
       
       analogWrite(ENA, 0); 
       analogWrite(ENB, 0); 
