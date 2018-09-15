@@ -135,13 +135,12 @@ void loop()
 
     float velocity0 = rpm0 * 3.1416 * wheel_diameter * 60 / 1000000;
     float velocity1 = rpm1 * 3.1416 * wheel_diameter * 60 / 1000000;
+    
 /*
     Serial.print(rpm0);
     Serial.print(':');
     Serial.print(rpm1);
-
     Serial.print(" (rpm);    ");
-
     Serial.print(velocity0);
     Serial.print(':');
     Serial.print(velocity1);
@@ -219,7 +218,7 @@ void loop()
                 velocity = (command - 48 + 1) * 10 + 100;
               }
               analogWrite(ENA, velocity); // 64 - крутится // 63 почти всё уже
-              analogWrite(ENB,  velocity); // 77 - не крутится // 79 начал крутится
+              analogWrite(ENB, velocity); // 77 - не крутится // 79 начал крутится
             }
           }
       }

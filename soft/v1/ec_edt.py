@@ -1,8 +1,6 @@
 from __future__ import print_function, absolute_import, division
 import subprocess
 import urwid
-import signal
-import os
 import serial
 from subprocess import Popen, PIPE
 from time import sleep
@@ -23,11 +21,8 @@ def exit_on_q(key):
     if key in ('q', 'Q'):
         #if ser != -1:
         #ser.write(b'q')
-        p.stdin.write(b'Q\n')
-        p.stdin.flush()
-        sleep(1)
-        # https://stackoverflow.com/questions/4789837/how-to-terminate-a-python-subprocess-launched-with-shell-true
-        os.killpg(os.getpgid(p.pid), signal.SIGTERM) 
+        #p.stdin.write(b'Q\n')
+        #p.stdin.flush()
         raise urwid.ExitMainLoop()
 
     #if ser == -1:
