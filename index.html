@@ -329,7 +329,53 @@
                          <img src="images/emnt4.jpg" class="img-responsive" alt="Portfolio">
                     </div>
 
+                    <div class="col-md-12 col-sm-12">
+						<h2> Звуковая подсистема робота</h2>	
+						<p align = "left">
+						Схема подключения микрофона и колонок с усилителем к роботу. В нашей версии Raspberry Pi нет микрофона, поэтому используется звуковая карта, подключаемая по USB.	
+                    </div>						
 						
+                    <div class="col-md-12 col-sm-12">
+                         <img src="images/snd.jpg" class="img-responsive" alt="Portfolio">
+                    </div>						
+					
+                    <div class="col-md-12 col-sm-12">
+						<h2>Награда робота</h2>	
+						<p align = "left">
+						Наш робот победил в конкурсе IT проект 2018 года в номинации "ВУЗы".
+                    </div>						
+						
+                    <div class="col-md-12 col-sm-12">
+                         <img src="images/dipl.png" class="img-responsive" alt="Portfolio">
+                    </div>			
+
+					<div class="col-md-12 col-sm-12">
+						<h2>Уточнения по Kinect</h2>	
+						<p align = "left">
+						Программа ./freenect-regtest выполняет запрос данных с кинекта и сохраняет их в четыре файла: registration_test_depth_mm.pgm (флаг - FREENECT_DEPTH_MM), registration_test_depth_raw.pgm (флаг - FREENECT_DEPTH_11BIT), registration_test_depth_registered.pgm (флаг - FREENECT_DEPTH_REGISTERED), registration_test_rgb.ppm (FREENECT_VIDEO_RGB). 
+						Изображение registration_test_rgb.ppm - обычное RGB изображение. Чтобы открыть изображения в формате PGM и, в том числе PPM, понадобится Adobe Photoshop или GIMP. 
+						При использовании флага FREENECT_DEPTH_MM библиотека libfreenect возвращает расстояние в миллиметрах, при использовании флага FREENECT_DEPTH_REGISTERED библиотека libfreenect возвращает расстояние в миллиметрах, где координаты (x, y) карты глубины соответствуют координатам (x,y) на RGB изображении (640*480).
+						При использовании флага FREENECT_DEPTH_11BIT информация о глубине запакована в 11 бит.
+					
+						
+                    </div>	
+					
+                    <div class="col-md-6 col-sm-6">
+                         <img src="images/registration_test_rgb.jpg" class="img-responsive" alt="Portfolio">
+                    </div>
+
+					<div class="col-md-6 col-sm-6">
+                         <img src="images/registration_test_depth_registered.jpg" class="img-responsive" alt="Portfolio">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                         <img src="images/registration_test_depth_raw.jpg" class="img-responsive" alt="Portfolio">
+                    </div>								
+					
+                    <div class="col-md-6 col-sm-6">
+                         <img src="images/registration_test_depth_mm.jpg" class="img-responsive" alt="Portfolio">
+                    </div>					
+					
 					
 
 					<div class="col-md-12 col-sm-12">
@@ -337,6 +383,11 @@
 						<p align = "left">
 						<p>
                     </div>	
+					
+					<div class="col-md-6 col-sm-6">
+						<div align="center"><iframe width="460" height="270" style="margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/5z8cooQMGu8" frameborder="0"></iframe></div>
+                    </div>	
+
 					
 					<div class="col-md-6 col-sm-6">
 						<div align="center"><iframe width="460" height="270" style="margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/31u3mrIRCF8" frameborder="0"></iframe></div>
@@ -437,8 +488,8 @@
 						6. Установка на робот аудиосистемы<br>
 						7. <s>Установка библиотеки libfreenect, независящей от ROS</s><br>
 						8. <s>Нарисовать схему подключения драйвера двигателей к Arduino </s><br>
-						9. <s>Описать результаты подключения libfreenect <s><br>
-						10. <s>Сделать защиту от переполнения в программе для оценки скорости вращения колёс для Arduino<s> <br>
+						9. <s>Описать результаты подключения libfreenect </s><br>
+						10. <s>Сделать защиту от переполнения в программе для оценки скорости вращения колёс для Arduino</s> <br>
 						11. <s>Доработать адаптер для питания Kinect от аккмуляторов</s> <br>
 						12. Программа с текстовым интерфейсом для управления роботом по ssh с обратной связью.
 						13. <s>Панель для размещения электронных компонентов</s> <br>
@@ -489,7 +540,10 @@
 						Известна особенность Kinect 1473, которая заключается в том, что без определённой прошивки нельзя управлять светодиодом и мотором, почитать про это можно 
 						<a href="https://github.com/OpenKinect/libfreenect/issues/376">здесь</a>. Решить проблему с загрузкой прошивки можно следующим образом. Скрипт https://github.com/OpenKinect/libfreenect/blob/master/src/fwfetcher.py
 						скачивает файл audios.bin, затем этот файл нужно поместить в каталог скомпилированных примеров (examples) и запустить ./freenect-wavrecord. В результате, ./freenect-wavrecord загрузит прошивку в память
-						и можно будет пользоваться командой ./freenect-tiltdemo, т.е. управлять мотором. <br><br>
+						и можно будет пользоваться командой ./freenect-tiltdemo, т.е. управлять мотором. 
+						
+						
+						<br><br>
 						
 						7. Модуль ROS - kinect_aux после компиляции не оказался работоспособным. Также не удалось запустить модуль imgage_view. Запуск команды:
 						rosrun image_view image_view image:=/camera/rgb/image_color приводит к ошибке. Описание ошибки здесь: 
@@ -497,7 +551,17 @@
 						можно будет заставить работать эти модули. Модуль freenect запукается без ошибок и находит kinect. После запуска roslaunch freenect_launch freenect.launch и
 						выполнения команды rostopic echo /camera/rgb/image_color можно получить данные с камеры ()<br><br>
 
+						<br><br>
+
 						8. Моторы при старте потребляют ток около 2 ампер, в рабочем режиме - около 1 ампера.
+
+						<br><br>
+						
+						9. Планируется организация звуковой подсистемы для робота, которая будет включать микрофон, динамики, USB звуковую карту. Процесс работы 
+						будет реализован в виде запрос-ответ. Распознавание и синтез речи планируется выполнять на основе SpeechKit Cloud API. Активацию модуля
+						распознавания будет выполняться по нажатию на кнопку, подключённую к Raspberry Pi. Возможен другой вариант активации - с использованием 
+						библиотеки CMU Sphinx, однако это технически несколько сложнее. В принципе, разработав активацию на основе кнопки, добавить активацию
+						с помощью CMU Sphinx будет несложно.
 
 						
 <!--			
